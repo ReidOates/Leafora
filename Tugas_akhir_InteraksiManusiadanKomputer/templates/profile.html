@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History - Leafora</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="page-profile">
+
+    <header class="main-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <img src="../static/images/Logo.png" alt="Leafora Logo" class="logo-img">
+                <span class="brand-text">LEAFORA</span>
+            </div>
+        </div>
+        <nav class="header-center">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="store.html" class="nav-link">Store</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="login.html" class="btn-order">Order now</a>
+        </nav>
+        <div class="header-right">
+            <div class="icon-wrapper">
+                <img src="../static/images/cart.png" alt="Cart">
+            </div>
+            <div class="icon-wrapper" id="userIconBtn">
+                <img src="../static/images/User.png" alt="User">
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-section">
+        <div class="profile-container">
+            <!-- Header for basic profile info (Optional or minimal) -->
+            <div class="profile-header-minimal">
+                <h1>My Profile</h1>
+                <button id="logoutBtn" class="btn-logout-small"><i class="fa-solid fa-right-from-bracket"></i>
+                    Logout</button>
+            </div>
+
+            <!-- Profile Edit Section -->
+            <div class="profile-edit-section">
+                <h2>User Information</h2>
+
+                <!-- View Mode -->
+                <div id="profileViewMode" class="profile-view-mode">
+                    <div class="view-grid">
+                        <div class="view-item">
+                            <span class="view-label">Name</span>
+                            <span class="view-value" id="viewName">User Name</span>
+                        </div>
+                        <div class="view-item">
+                            <span class="view-label">Email</span>
+                            <span class="view-value" id="viewEmail">user@example.com</span>
+                        </div>
+                        <div class="view-item full-width">
+                            <span class="view-label">Address</span>
+                            <span class="view-value" id="viewAddress">No address set.</span>
+                        </div>
+                    </div>
+                    <button id="editProfileBtn" class="btn-edit-profile"><i class="fa-solid fa-pen-to-square"></i> Edit
+                        Profile</button>
+                </div>
+
+                <!-- Edit Mode (Hidden initially) -->
+                <div id="profileEditMode" class="profile-edit-mode hidden">
+                    <div class="edit-grid">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" id="profileFirstName" placeholder="Values">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" id="profileLastName" placeholder="Values">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="profileEmail" placeholder="user@example.com">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>Address</label>
+                            <input type="text" id="profileAddress" placeholder="Full Address">
+                        </div>
+                    </div>
+                    <div class="edit-actions">
+                        <button id="cancelProfileBtn" class="btn-cancel-profile">Cancel</button>
+                        <button id="saveProfileBtn" class="btn-save-profile">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW 1: Order History List -->
+            <div id="orderHistoryView">
+                <h2>Order History</h2>
+                <div class="history-tabs">
+                    <button class="h-tab active" data-filter="pending">Pending</button>
+                    <button class="h-tab" data-filter="processed">Processed</button>
+                    <button class="h-tab" data-filter="sent">Sent</button>
+                    <button class="h-tab" data-filter="finished">Finished</button>
+                </div>
+
+                <div class="orders-list" id="ordersListContainer">
+                    <!-- Dynamic Orders Injected Here -->
+                    <!-- Example Static for structure -->
+                    <div class="order-card p-status-pending">
+                        <div class="o-card-img">
+                            <img src="../static/images/Royal Evergreen Bonsai.jpg" alt="Bonsai">
+                        </div>
+                        <div class="o-card-info">
+                            <div class="o-header">
+                                <h3>Order#001</h3>
+                                <span class="status-badge pending">Pending</span>
+                            </div>
+                            <div class="o-details">
+                                <p>10 January 2026</p>
+                                <p>Jl. Merdeka No. 10, Bandung 10120</p>
+                                <p>2 Items</p>
+                                <p class="o-total">Total : <strong>$800.00</strong></p>
+                            </div>
+                        </div>
+                        <button class="btn-view-details" data-id="001">View Details</button>
+                    </div>
+                </div>
+
+                <div class="pagination">
+                    <span>Previous</span>
+                    <span class="page-num active">1</span>
+                    <span class="page-num">2</span>
+                    <span class="page-num">3</span>
+                    <span class="page-num">4</span>
+                    <span>Next &gt;</span>
+                </div>
+            </div>
+
+            <!-- VIEW 2: Order Detail (Hidden by default) -->
+            <div id="orderDetailView" class="hidden">
+                <div class="detail-breadcrumbs">
+                    <span class="back-breadcrumb" id="backToOrdersBreadcrumb">Order History</span> &gt; <span
+                        id="detailOrderIdBreadcrumb">Order#001</span> &gt; <span>Order Detail</span>
+                </div>
+                <h2 class="detail-page-title">Order Detail</h2>
+
+                <!-- Green Info Box -->
+                <div class="order-info-box">
+                    <div class="info-content">
+                        <h3>Order ID : <span id="detailOrderId">001</span></h3>
+                        <p>Order Date : <span id="detailDate">17 January 2025</span></p>
+                        <p>Receiptor : <span id="detailName">John Doel</span></p>
+                        <p>Address : <span id="detailAddress">Jl. Merdeka No. 10, Jakarta 10110</span></p>
+                        <p>Telp : <span id="detailPhone">+62 812 3456 7890</span></p>
+                    </div>
+                    <button class="btn-download-invoice">Download Invoice</button>
+                </div>
+
+                <div class="detail-split">
+                    <!-- Left: Plants List -->
+                    <div class="detail-left">
+                        <h3 class="panel-title">Plants</h3>
+                        <div class="detail-items-list" id="detailItemsList">
+                            <!-- Items go here -->
+                        </div>
+                        <!-- Total and extra invoice button from design -->
+                        <div class="detail-left-footer">
+                            <div class="detail-total-row">
+                                <span>Total Harga :</span>
+                                <strong id="detailTotal">$800.00</strong>
+                            </div>
+                            <button class="btn-download-invoice-secondary">Download Invoice</button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Status Timeline -->
+                    <div class="detail-right">
+                        <h3 class="panel-title">Status</h3>
+                        <div class="status-timeline">
+                            <div class="timeline-item active">
+                                <div class="t-dot"></div>
+                                <div class="t-content">
+                                    <h4>Processed</h4>
+                                    <p>18 January 2026</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="t-dot"></div>
+                                <div class="t-content">
+                                    <h4>Sent</h4>
+                                    <p>Estimasi : 19-21 January 2026</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="t-dot"></div>
+                                <div class="t-content">
+                                    <h4>Finished</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom: Maintenance Notes -->
+                <div class="maintenance-box">
+                    <h3 class="panel-title">Maintenance Notes</h3>
+                    <div class="notes-content">
+                        <p>Watering : 1-2 times a week</p>
+                        <p>Light : In a bright place (avoid direct sunlight)</p>
+                        <p>Fertilization : Give liquid fertilizer once a month</p>
+                    </div>
+                    <div class="notes-footer">
+                        <button class="btn-back-orders" id="backToOrdersBtn">&lt; Back to Orders</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Sidebar & Script -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-recommendations">
+            <h3>YOU MAY ALSO LIKE</h3>
+            <div class="rec-items">
+                <div class="rec-item"><img src="../static/images/Ficus Golden Coin.jpg">
+                    <div class="rec-info">
+                        <h4>Ficus</h4><span>$55.00</span><button class="btn-rec-add"
+                            onclick="addToCart('Ficus', 55, '../static/images/Ficus Golden Coin.jpg')">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-panel-right">
+            <div class="cart-header">
+                <h3>CART</h3><button class="btn-close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-body">
+                <div class="cart-items" id="cartItemsContainer"></div>
+            </div>
+            <div class="cart-footer">
+                <button class="btn-checkout">CHECK OUT</button>
+            </div>
+        </div>
+    </div>
+    <script src="../static/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Leafora</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="page-admin">
+
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                <img src="../static/images/Logo.png" alt="Leafora">
+                <span>Admin</span>
+            </div>
+            <nav class="admin-nav">
+                <a href="#" class="admin-link active" data-view="dashboard"><i class="fa-solid fa-cube"></i>
+                    Dashboard</a>
+                <a href="#" class="admin-link" data-view="products">
+                    <!-- Bright Cart Logo as requested: matching Manage Orders color -->
+                    <img src="../static/images/cart.png" alt="Icon"
+                        style="width:20px; height:20px; object-fit:contain; filter: brightness(0) invert(1) opacity(0.7);">
+                    Manage Product
+                </a>
+                <a href="#" class="admin-link" data-view="orders">
+                    <i class="fa-solid fa-chart-line"></i> Manage Orders
+                </a>
+                <a href="index.html" class="admin-link logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-content">
+            <header class="admin-header">
+                <h1 id="pageTitle">Admin Dashboard</h1>
+                <div class="admin-user">
+                    <span class="badge-admin">Admin</span>
+                    <i class="fa-regular fa-user"></i>
+                </div>
+            </header>
+
+            <!-- VIEW: Dashboard -->
+            <div id="view-dashboard" class="admin-view">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="stat-info">
+                            <span class="stat-num" id="statTotalOrders">0</span>
+                            <span class="stat-label">Total Orders</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <div class="stat-info">
+                            <span class="stat-num" id="statTotalProducts">4</span>
+                            <span class="stat-label">Total Product</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-regular fa-rectangle-list"></i>
+                        <div class="stat-info">
+                            <span class="stat-num" id="statPendingOrders">0</span>
+                            <span class="stat-label">Pending Orders</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fa-solid fa-square-check"></i>
+                        <div class="stat-info">
+                            <span class="stat-num" id="statCompletedOrders">0</span>
+                            <span class="stat-label">Order Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-section">
+                    <div class="section-header">
+                        <h2>Recent Orders</h2>
+                        <a href="#" id="viewAllOrdersBtn">View All <i class="fa-solid fa-chevron-down"></i></a>
+                    </div>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Customer</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dashboardOrdersTable">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- VIEW: Manage Product -->
+            <div id="view-products" class="admin-view hidden">
+                <div class="product-controls">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search Product......">
+                    </div>
+                    <!-- Chart Logo / Header Icon -->
+                    <div class="product-header-icon"
+                        style="display:flex; align-items:center; gap:10px; color:#235347; font-size:1.2rem; margin-right:auto; margin-left:20px;">
+                        <i class="fa-solid fa-chart-pie"></i> <span>Overview</span>
+                    </div>
+                    <button class="btn-reset-defaults"
+                        style="background:#ffc107; color:#333; border:none; padding:0.5rem 1rem; border-radius:8px; margin-right:10px; cursor:pointer;">
+                        <i class="fa-solid fa-rotate-left"></i> Reset Defaults
+                    </button>
+                    <button class="btn-add-product"><i class="fa-solid fa-plus"></i> Add Product</button>
+                </div>
+
+                <table class="admin-table product-table">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Stock</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTable">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+
+                <!-- Add Product Modal -->
+                <div id="addProductModal" class="modal hidden">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h2>Add New Product</h2>
+                        <form id="addProductForm">
+                            <div class="form-group">
+                                <label>Product Name</label>
+                                <input type="text" id="newProdName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Stock</label>
+                                <input type="number" id="newProdStock" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Price ($)</label>
+                                <input type="number" step="0.01" id="newProdPrice" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input type="file" id="newProdImage" accept="image/*">
+                            </div>
+                            <div class="form-group">
+                                <label>Care Instructions</label>
+                                <textarea id="newProdCare" rows="3"
+                                    placeholder="How to care for this plant..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit-product">Add Product</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: Manage Orders -->
+            <div id="view-orders" class="admin-view hidden">
+                <div class="order-filters">
+                    <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-list"></i> All</button>
+                    <button class="filter-btn" data-filter="pending"><i class="fa-regular fa-clock"></i>
+                        Pending</button>
+                    <button class="filter-btn" data-filter="processed"><i class="fa-solid fa-arrows-rotate"></i>
+                        Processed</button>
+                    <button class="filter-btn" data-filter="sent"><i class="fa-solid fa-truck-fast"></i> Sent</button>
+                </div>
+
+                <div class="recent-section">
+                    <div class="section-header">
+                        <h2>Order Management</h2>
+                    </div>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Customer</th>
+                                <th>Status</th>
+                                <th>Note</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="manageOrdersTable">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="../static/script.js"></script>
+</body>
+
+</html>

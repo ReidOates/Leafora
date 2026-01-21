@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store - Leafora</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="page-store">
+
+    <header class="main-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <img src="../static/images/Logo.png" alt="Leafora Logo" class="logo-img">
+                <span class="brand-text">LEAFORA</span>
+            </div>
+        </div>
+        <nav class="header-center">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="store.html" class="nav-link active">Store</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="login.html" class="btn-order">Order now</a>
+        </nav>
+        <div class="header-right">
+            <div class="icon-wrapper">
+                <img src="../static/images/cart.png" alt="Cart">
+            </div>
+            <div class="icon-wrapper">
+                <img src="../static/images/User.png" alt="User">
+            </div>
+        </div>
+    </header>
+
+    <div class="store-header-section">
+        <h1 class="store-title">PLANTS</h1>
+        <p style="opacity:0.8; margin-top:10px;">Find your perfect plant companion.</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="store-tabs">
+        <div class="tab-item active" data-tab="0">Popular</div>
+        <div class="tab-item" data-tab="1">Indoor Plant</div>
+        <div class="tab-item" data-tab="2">Outdoor Plant</div>
+        <div class="tab-item" data-tab="3">Cactus</div>
+    </div>
+
+    <!-- Slider Wrapper -->
+    <div class="slider-wrapper">
+        <div class="slider-track" id="sliderTrack">
+
+            <!-- Slide 0: Popular (Mix) -->
+            <div class="slide-section">
+                <div class="product-grid">
+                    <a href="detail_product.html?id=10" class="product-card">
+                        <img src="../static/images/Monstera Deliciosa.jpg" alt="Monstera" class="card-img-bg">
+                        <div class="card-wishlist"><i class="fa-regular fa-heart"></i></div>
+                        <div class="card-content-overlay">
+                            <div class="card-info">
+                                <h3 class="card-title">Monstera<br>Deliciosa</h3>
+                                <span class="card-price">$45.00</span>
+                            </div>
+                            <button class="btn-card-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </a>
+
+                    <a href="detail_product.html?id=4" class="product-card">
+                        <img src="../static/images/Royal Evergreen Bonsai.jpg" alt="Bonsai" class="card-img-bg">
+                        <div class="card-wishlist"><i class="fa-regular fa-heart"></i></div>
+                        <div class="card-content-overlay">
+                            <div class="card-info">
+                                <h3 class="card-title">Royal<br>Evergreen</h3>
+                                <span class="card-price">$70.00</span>
+                            </div>
+                            <button class="btn-card-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </a>
+
+                    <a href="detail_product.html?id=6" class="product-card">
+                        <img src="../static/images/Juniper Bonsai.jpg" alt="Juniper" class="card-img-bg">
+                        <div class="card-wishlist"><i class="fa-regular fa-heart"></i></div>
+                        <div class="card-content-overlay">
+                            <div class="card-info">
+                                <h3 class="card-title">Juniper<br>Bonsai</h3>
+                                <span class="card-price">$65.00</span>
+                            </div>
+                            <button class="btn-card-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </a>
+
+                    <a href="detail_product.html?id=8" class="product-card">
+                        <img src="../static/images/Cactus Barrel.jpg" alt="Cactus" class="card-img-bg">
+                        <div class="card-wishlist"><i class="fa-regular fa-heart"></i></div>
+                        <div class="card-content-overlay">
+                            <div class="card-info">
+                                <h3 class="card-title">Cactus<br>Barrel</h3>
+                                <span class="card-price">$25.00</span>
+                            </div>
+                            <button class="btn-card-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Slide 1: Indoor Plant -->
+            <!-- List: Monstera Deliciosa, Peace Lily (Spathiphyllum), Phalaenopsis White Orchid, Aglaonema Red Siam -->
+            <div class="slide-section">
+                <div class="product-grid">
+                    <!-- 1. Monstera Deliciosa -->
+                    <a href="detail_product.html?id=10" class="product-card">
+                        <img src="../static/images/Monstera Deliciosa.jpg" alt="Monstera" class="card-img-bg">
+                        <div class="card-content-overlay">
+                            <div class="card-info">
+                                <h3 class="card-title">Monstera<br>Deliciosa</h3><span class="card-price">$45.00</span>
+                            </div>
+                            <button class="btn-card-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </a>
+                    <!-- 2. Peace Lily -->
+                    <a href="detail_product.html?id=1" class="product-card">
+                        <img src="../static/images/Peace Lily (Spathiphyllum).jpg" alt="Peace Lily" class="card-img-bg">
+                        <div class="card-content-overlay">
+                            <div class="card-info">
+                                <h3 class="card-title">Peace Lily<br>(Spathiphyllum)</h3><span
+                                    class="card-price">$25.00</span>
+                            </div>
+                            <button class="btn-card-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </a>
+                    <!-- 3. Phalaenopsis White Orchid -->
+                    <a href="detail_product.html?id=3" class="product-card">
+                        <img src="../static/images/Phalaenopsis White Orchid.jpg" alt="Orchid" class="card-img-bg">
+                        <div class="card-content-overlay">
+                            <div class="card-info">
+                                <h3 class="card-title">White<br>Orchid</h3><span class="card-price">$30.00</span>
+                            </div>
+                            <button class="btn-card-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </a>
+                    <!-- 4. Aglaonema Red Siam -->
+                    <a href="detail_product.html?id=2" class="product-card">
+                        <img src="../static/images/Aglaonema Red Siam.jpg" alt="Aglaonema" class="card-img-bg">
+                        <div class="card-content-overlay">
+                            <div class="card-info">
+                                <h3 class="card-title">Aglaonema<br>Red Siam</h3><span class="card-price">$35.00</span>
+                            </div>
+                            <button class="btn-card-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Slide 2: Outdoor Plant -->
+            <!-- List: Japanese Black Pine, Juniper Bonsai, Ficus Golden Coin, Royal Evergreen Bonsai -->
+            <div class="slide-section">
+                <div class="product-grid">
+                    <!-- 1. Japanese Black Pine -->
+                    <a href="detail_product.html?id=5" class="product-card">
+                        <img src="../static/images/Japanese Black Pine.jpeg" alt="Pine" class="card-img-bg">
+                        <div class="card-content-overlay">
+                            <div class="card-info">
+                                <h3 class="card-title">Japanese<br>Black Pine</h3><span class="card-price">$80.00</span>
+                            </div>
+                            <button class="btn-card-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </a>
+                    <!-- 2. Juniper Bonsai -->
+                    <a href="detail_product.html?id=6" class="product-card">
+                        <img src="../static/images/Juniper Bonsai.jpg" alt="Juniper" class="card-img-bg">
+                        <div class="card-content-overlay">
+                            <div class="card-info">
+                                <h3 class="card-title">Juniper<br>Bonsai</h3><span class="card-price">$65.00</span>
+                            </div>
+                            <button class="btn-card-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </a>
+                    <!-- 3. Ficus Golden Coin -->
+                    <a href="detail_product.html?id=7" class="product-card">
+                        <img src="../static/images/Ficus Golden Coin.jpg" alt="Ficus" class="card-img-bg">
+                        <div class="card-content-overlay">
+                            <div class="card-info">
+                                <h3 class="card-title">Ficus<br>Golden Coin</h3><span class="card-price">$55.00</span>
+                            </div>
+                            <button class="btn-card-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </a>
+                    <!-- 4. Royal Evergreen Bonsai -->
+                    <a href="detail_product.html?id=4" class="product-card">
+                        <img src="../static/images/Royal Evergreen Bonsai.jpg" alt="Royal Evergreen"
+                            class="card-img-bg">
+                        <div class="card-content-overlay">
+                            <div class="card-info">
+                                <h3 class="card-title">Royal<br>Evergreen</h3><span class="card-price">$70.00</span>
+                            </div>
+                            <button class="btn-card-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Slide 3: Cactus -->
+            <!-- List: Cactus Barrel, Echeveria Blue Prince -->
+            <div class="slide-section">
+                <div class="product-grid">
+                    <!-- 1. Cactus Barrel -->
+                    <a href="detail_product.html?id=8" class="product-card">
+                        <img src="../static/images/Cactus Barrel.jpg" alt="Cactus" class="card-img-bg">
+                        <div class="card-content-overlay">
+                            <div class="card-info">
+                                <h3 class="card-title">Cactus<br>Barrel</h3><span class="card-price">$25.00</span>
+                            </div>
+                            <button class="btn-card-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </a>
+                    <!-- 2. Echeveria Blue Prince -->
+                    <a href="detail_product.html?id=9" class="product-card">
+                        <img src="../static/images/Echeveria Blue Prince.jpg" alt="Succulent" class="card-img-bg">
+                        <div class="card-content-overlay">
+                            <div class="card-info">
+                                <h3 class="card-title">Echeveria<br>Blue Prince</h3><span
+                                    class="card-price">$15.00</span>
+                            </div>
+                            <button class="btn-card-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 LEAFORA. All rights reserved.</p>
+    </footer>
+
+    </footer>
+
+    <!-- Cart Overlay & Sidebar -->
+    <!-- Cart Overlay & Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <!-- New Left Side: Recommendations -->
+        <div class="cart-recommendations">
+            <h3>YOU MAY ALSO LIKE</h3>
+            <div class="rec-items">
+                <!-- Hardcoded Rec Items -->
+                <div class="rec-item">
+                    <img src="../static/images/Ficus Golden Coin.jpg" alt="Ficus">
+                    <div class="rec-info">
+                        <h4>Ficus Golden Coin</h4>
+                        <span>$55.00</span>
+                        <button class="btn-rec-add"
+                            onclick="addToCart('Ficus Golden Coin', 55.00, '../static/images/Ficus Golden Coin.jpg')">Add
+                            to cart &rarr;</button>
+                    </div>
+                </div>
+                <div class="rec-item">
+                    <img src="../static/images/Peace Lily (Spathiphyllum).jpg" alt="Peace Lily">
+                    <div class="rec-info">
+                        <h4>Peace Lily</h4>
+                        <span>$25.00</span>
+                        <button class="btn-rec-add"
+                            onclick="addToCart('Peace Lily', 25.00, '../static/images/Peace Lily (Spathiphyllum).jpg')">Add
+                            to cart &rarr;</button>
+                    </div>
+                </div>
+                <div class="rec-item">
+                    <img src="../static/images/Phalaenopsis White Orchid.jpg" alt="Orchid">
+                    <div class="rec-info">
+                        <h4>White Orchid</h4>
+                        <span>$30.00</span>
+                        <button class="btn-rec-add"
+                            onclick="addToCart('White Orchid', 30.00, '../static/images/Phalaenopsis White Orchid.jpg')">Add
+                            to cart &rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Existing Cart -->
+        <div class="cart-panel-right">
+            <div class="cart-header">
+                <h3>CART</h3>
+                <button class="btn-close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-body">
+                <div class="cart-items" id="cartItemsContainer">
+                    <p class="empty-msg">Your cart is empty.</p>
+                </div>
+            </div>
+            <div class="cart-footer">
+                <p class="cart-tax-info">Tax and shipping calculated at check out</p>
+                <button class="btn-checkout">
+                    <span>CHECK OUT</span>
+                    <span id="cartTotalDisplay">- $0.00 USD</span>
+                </button>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="../static/script.js"></script>
+</body>
+
+</html>

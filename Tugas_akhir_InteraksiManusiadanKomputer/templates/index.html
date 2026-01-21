@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leafora - Bring Nature Home</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <img src="../static/images/Logo.png" alt="Leafora Logo" class="logo-img">
+                <span class="brand-text">LEAFORA</span>
+            </div>
+        </div>
+        <nav class="header-center">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="store.html" class="nav-link">Store</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="login.html" class="btn-order">Order now</a>
+        </nav>
+        <div class="header-right">
+            <div class="icon-wrapper">
+                <img src="../static/images/cart.png" alt="Cart">
+            </div>
+            <div class="icon-wrapper">
+                <img src="../static/images/User.png" alt="User">
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Split) -->
+    <section class="hero-split">
+        <!-- Text Side -->
+        <div class="hero-text-side">
+            <span class="hero-subtitle">WELCOME TO LEAFORA</span>
+            <h1 class="hero-title">Bring Nature Closer<br>To Your Home.</h1>
+            <p class="hero-description">
+                High-quality plants delivered safely to your doorstep. We believe that living with plants makes life
+                better.
+            </p>
+            <a href="store.html" class="btn-shop-all">Start Buying</a>
+        </div>
+        <!-- Image Slider Side -->
+        <div class="hero-img-side">
+            <div class="hero-slider-container">
+                <img src="../static/images/Monstera Deliciosa.jpg" class="hero-slide active" alt="Monstera">
+                <img src="../static/images/Juniper Bonsai.jpg" class="hero-slide" alt="Juniper">
+                <img src="../static/images/Royal Evergreen Bonsai.jpg" class="hero-slide" alt="Royal Evergreen">
+                <img src="../static/images/Phalaenopsis White Orchid.jpg" class="hero-slide" alt="Orchid">
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro-section">
+        <h2 class="intro-tagline">Bring Nature Close To Your Home</h2>
+        <p class="intro-description">
+            In an increasingly fast-paced digital world, we believe that everyone deserves a sanctuary of calm. LEAFORA
+            was founded on a simple yet profound belief: that living with plants makes life better. We are more than
+            just a plant shop; we are your dedicated partner in transforming your living spaces into vibrant, breathing
+            ecosystems.
+        </p>
+    </section>
+
+    <!-- Discovery Category -->
+    <section class="discovery-section">
+        <div class="section-header">
+            <span class="section-subtitle">Welcome to Leafora</span>
+            <h2 class="section-title">Discovery Category</h2>
+        </div>
+
+        <div class="discovery-grid">
+            <a href="store.html?tab=1" class="discovery-card">
+                <div class="discovery-img-wrapper">
+                    <img src="../static/images/Monstera Deliciosa.jpg" alt="Indoor Plants">
+                </div>
+                <h3 class="discovery-title">Indoor Plants</h3>
+            </a>
+            <a href="store.html?tab=2" class="discovery-card">
+                <div class="discovery-img-wrapper">
+                    <img src="../static/images/Japanese Black Pine.jpeg" alt="Outdoor Plants">
+                </div>
+                <h3 class="discovery-title">Outdoor Plants</h3>
+            </a>
+            <a href="store.html?tab=3" class="discovery-card">
+                <div class="discovery-img-wrapper">
+                    <img src="../static/images/Cactus Barrel.jpg" alt="Cactus Plants">
+                </div>
+                <h3 class="discovery-title">Cactus Plants</h3>
+            </a>
+        </div>
+    </section>
+
+    <!-- Features / Shipping (Accent Background) -->
+    <section class="features">
+        <h2 class="features-title">Can Send Anywhere</h2>
+        <div class="steps-container">
+            <div class="step-item">
+                <div class="step-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <h3>Choose Location</h3>
+            </div>
+            <div class="step-divider"></div>
+            <div class="step-item">
+                <div class="step-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                <h3>Pick-up Date</h3>
+            </div>
+            <div class="step-divider"></div>
+            <div class="step-item">
+                <div class="step-icon"><i class="fa-solid fa-box"></i></div>
+                <h3>Get Package</h3>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 LEAFORA. All rights reserved.</p>
+    </footer>
+
+    </footer>
+
+    <!-- Cart Overlay & Sidebar -->
+    <!-- Cart Overlay & Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <!-- New Left Side: Recommendations -->
+        <div class="cart-recommendations">
+            <h3>YOU MAY ALSO LIKE</h3>
+            <div class="rec-items">
+                <!-- Hardcoded Rec Items -->
+                <div class="rec-item">
+                    <img src="../static/images/Ficus Golden Coin.jpg" alt="Ficus">
+                    <div class="rec-info">
+                        <h4>Ficus Golden Coin</h4>
+                        <span>$55.00</span>
+                        <button class="btn-rec-add"
+                            onclick="addToCart('Ficus Golden Coin', 55.00, '../static/images/Ficus Golden Coin.jpg')">Add
+                            to cart &rarr;</button>
+                    </div>
+                </div>
+                <div class="rec-item">
+                    <img src="../static/images/Peace Lily (Spathiphyllum).jpg" alt="Peace Lily">
+                    <div class="rec-info">
+                        <h4>Peace Lily</h4>
+                        <span>$25.00</span>
+                        <button class="btn-rec-add"
+                            onclick="addToCart('Peace Lily', 25.00, '../static/images/Peace Lily (Spathiphyllum).jpg')">Add
+                            to cart &rarr;</button>
+                    </div>
+                </div>
+                <div class="rec-item">
+                    <img src="../static/images/Phalaenopsis White Orchid.jpg" alt="Orchid">
+                    <div class="rec-info">
+                        <h4>White Orchid</h4>
+                        <span>$30.00</span>
+                        <button class="btn-rec-add"
+                            onclick="addToCart('White Orchid', 30.00, '../static/images/Phalaenopsis White Orchid.jpg')">Add
+                            to cart &rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Existing Cart -->
+        <div class="cart-panel-right">
+            <div class="cart-header">
+                <h3>CART</h3>
+                <button class="btn-close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-body">
+                <div class="cart-items" id="cartItemsContainer">
+                    <p class="empty-msg">Your cart is empty.</p>
+                </div>
+            </div>
+            <div class="cart-footer">
+                <p class="cart-tax-info">Tax and shipping calculated at check out</p>
+                <button class="btn-checkout">
+                    <span>CHECK OUT</span>
+                    <span id="cartTotalDisplay">- $0.00 USD</span>
+                </button>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="../static/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - Leafora</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <img src="../static/images/Logo.png" alt="Leafora Logo" class="logo-img">
+                <span class="brand-text">LEAFORA</span>
+            </div>
+        </div>
+        <nav class="header-center">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="store.html" class="nav-link">Store</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="login.html" class="btn-order">Order now</a>
+        </nav>
+        <div class="header-right">
+            <div class="icon-wrapper">
+                <img src="../static/images/cart.png" alt="Cart">
+            </div>
+            <div class="icon-wrapper">
+                <img src="../static/images/User.png" alt="User">
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Detail Split Layout -->
+    <section class="product-detail-split">
+        <!-- 1. Text / Info Side -->
+        <div class="detail-info-side">
+            <div class="detail-info-content">
+                <span class="detail-tag" id="dCat">Exclusive Item</span>
+                <!-- Dynamic Title -->
+                <h1 class="detail-title" id="dName">Product Name</h1>
+
+                <!-- Dynamic Description -->
+                <p class="detail-description" id="dDesc">
+                    Loading product description...
+                </p>
+
+                <button class="btn-hero-add-cart" id="heroAddCartBtn">ADD TO CART</button>
+            </div>
+        </div>
+
+        <!-- 2. Image Side -->
+        <div class="detail-image-side">
+            <div class="detail-img-wrapper">
+                <!-- Dynamic Image -->
+                <img src="../static/images/Logo.png" alt="Product Image" id="dImg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Care Instructions Section (Boxed) -->
+    <section class="care-section">
+        <h2 class="section-title"
+            style="text-align:center; margin-bottom:3rem; font-family:'Lora',serif; color:var(--color-secondary);">Care
+            Instructions</h2>
+
+        <div class="care-grid-boxes">
+            <!-- Box 1 -->
+            <div class="care-box">
+                <div class="care-icon"><i class="fa-solid fa-ruler-vertical"></i></div>
+                <h3>Size</h3>
+                <p>Small to Medium</p>
+            </div>
+            <!-- Box 2 -->
+            <div class="care-box">
+                <div class="care-icon"><i class="fa-solid fa-temperature-half"></i></div>
+                <h3>Temperature</h3>
+                <p>18-24°C (Indoor)</p>
+            </div>
+            <!-- Box 3 -->
+            <div class="care-box">
+                <div class="care-icon"><i class="fa-solid fa-droplet"></i></div>
+                <h3>Watering</h3>
+                <p id="dCare">Weekly</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchase Reference Section (Bottom) - Modified -->
+    <section class="purchase-reference-section" id="purchase-section">
+        <div class="purchase-ref-container">
+            <div class="purchase-ref-image">
+                <img src="../static/images/Logo.png" alt="Ref" id="dImgRef">
+            </div>
+            <div class="purchase-ref-details">
+                <span class="ref-subtitle">Add to Collection</span>
+                <h2 class="ref-title" id="dNameRef">Product Name</h2>
+
+                <div class="ref-price-block">
+                    <span class="ref-price" id="dPrice">$0.00</span>
+                    <small>USD</small>
+                </div>
+
+                <div class="ref-actions">
+                    <div class="ref-qty-selector">
+                        <button onclick="decreaseQty()">-</button>
+                        <input type="number" value="1" id="qtyInput" readonly>
+                        <button onclick="increaseQty()">+</button>
+                    </div>
+                    <!-- Single Button as requested -->
+                    <button class="ref-btn-cart">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Overlay & Sidebar (From Index/Store) -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <!-- New Left Side: Recommendations -->
+        <div class="cart-recommendations">
+            <h3>YOU MAY ALSO LIKE</h3>
+            <div class="rec-items">
+                <!-- Hardcoded Rec Items -->
+                <div class="rec-item">
+                    <img src="../static/images/Ficus Golden Coin.jpg" alt="Ficus">
+                    <div class="rec-info">
+                        <h4>Ficus Golden Coin</h4>
+                        <span>$55.00</span>
+                        <button class="btn-rec-add"
+                            onclick="addToCart('Ficus Golden Coin', 55.00, '../static/images/Ficus Golden Coin.jpg')">Add
+                            to cart &rarr;</button>
+                    </div>
+                </div>
+                <div class="rec-item">
+                    <img src="../static/images/Peace Lily (Spathiphyllum).jpg" alt="Peace Lily">
+                    <div class="rec-info">
+                        <h4>Peace Lily</h4>
+                        <span>$25.00</span>
+                        <button class="btn-rec-add"
+                            onclick="addToCart('Peace Lily', 25.00, '../static/images/Peace Lily (Spathiphyllum).jpg')">Add
+                            to cart &rarr;</button>
+                    </div>
+                </div>
+                <div class="rec-item">
+                    <img src="../static/images/Phalaenopsis White Orchid.jpg" alt="Orchid">
+                    <div class="rec-info">
+                        <h4>White Orchid</h4>
+                        <span>$30.00</span>
+                        <button class="btn-rec-add"
+                            onclick="addToCart('White Orchid', 30.00, '../static/images/Phalaenopsis White Orchid.jpg')">Add
+                            to cart &rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Existing Cart -->
+        <div class="cart-panel-right">
+            <div class="cart-header">
+                <h3>CART</h3>
+                <button class="btn-close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-body">
+                <div class="cart-items" id="cartItemsContainer">
+                    <p class="empty-msg">Your cart is empty.</p>
+                </div>
+            </div>
+            <div class="cart-footer">
+                <p class="cart-tax-info">Tax and shipping calculated at check out</p>
+                <button class="btn-checkout">
+                    <span>CHECK OUT</span>
+                    <span id="cartTotalDisplay">- $0.00 USD</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- START Back Button (Floating or Integrated) -->
+    <a href="javascript:void(0)" onclick="goBack()"
+        style="position:fixed; top:100px; left:40px; color:var(--color-primary); z-index:100; background:rgba(255,255,255,0.7); padding:10px 20px; border-radius:30px; font-weight:600; text-decoration:none; backdrop-filter:blur(5px); box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+    <!-- END Back Button -->
+
+    <script src="../static/script.js"></script>
+</body>
+
+</html>

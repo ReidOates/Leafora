@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Leafora</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="page-checkout">
+
+    <header class="main-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <img src="../static/images/Logo.png" alt="Leafora Logo" class="logo-img">
+                <span class="brand-text">LEAFORA</span>
+            </div>
+        </div>
+        <nav class="header-center">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="store.html" class="nav-link">Store</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="login.html" class="btn-order">Order now</a>
+        </nav>
+        <div class="header-right">
+            <div class="icon-wrapper">
+                <img src="../static/images/cart.png" alt="Cart">
+            </div>
+            <div class="icon-wrapper" id="userIconBtn">
+                <img src="../static/images/User.png" alt="User">
+            </div>
+        </div>
+    </header>
+
+    <main class="checkout-section">
+        <h1 class="checkout-page-title">Checkout</h1>
+
+        <!-- Progress Steps -->
+        <div class="checkout-progress">
+            <div class="progress-step active" id="progStep1">
+                <div class="step-circle"><i class="fa-solid fa-check"></i></div>
+                <span>Shipping</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" id="progStep2">
+                <div class="step-circle">2</div>
+                <span>Payment</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" id="progStep3">
+                <div class="step-circle">3</div>
+                <span>Review</span>
+            </div>
+        </div>
+
+        <!-- Sliding Container -->
+        <div class="checkout-slider-container">
+            <div class="checkout-slides-wrapper" id="slidesWrapper">
+
+                <!-- SLIDE 1: SHIPPING ADDRESS -->
+                <div class="checkout-slide slide-address">
+                    <div class="checkout-card address-card full-width-card">
+                        <h2>Shipping Address</h2>
+                        <form class="checkout-form">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" id="shipName" placeholder="Full Name">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="text" id="shipPhone" placeholder="Phone Number">
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                <div class="address-inputs">
+                                    <input type="text" id="shipStreet" placeholder="Street Address">
+                                    <input type="text" id="shipCity" placeholder="City">
+                                </div>
+                                <div class="address-inputs">
+                                    <input type="text" id="shipZip" placeholder="Postal Code">
+                                    <div class="select-wrapper">
+                                        <select>
+                                            <option>Jakarta</option>
+                                            <option>Bandung</option>
+                                            <option>Surabaya</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Validation added in script -->
+                            <button type="button" class="btn-next-step" onclick="goToSlide(2)">Continue to Payment
+                                &rarr;</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2: PAYMENT METHOD -->
+                <div class="checkout-slide slide-payment">
+                    <div class="checkout-card payment-card full-width-card">
+                        <h2>Payment Method</h2>
+                        <div class="payment-tabs">
+                            <button class="p-tab active" data-method="card">Credit Card</button>
+                            <button class="p-tab" data-method="bank">Bank Transfer</button>
+                            <button class="p-tab" data-method="wallet">Digital Wallet</button>
+                        </div>
+
+                        <div class="payment-content active" id="payMethodCard">
+                            <div class="form-group">
+                                <label>Card Number</label>
+                                <input type="text" id="payCardNum" placeholder="0000 0000 0000 0000">
+                            </div>
+                            <div class="address-inputs">
+                                <div class="form-group" style="flex:1">
+                                    <label>Expiration (MM/YY)</label>
+                                    <input type="text" id="payCardExp" placeholder="MM/YY">
+                                </div>
+                                <div class="form-group" style="flex:1">
+                                    <label>Security Code</label>
+                                    <input type="text" id="payCardCvv" placeholder="CVV">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Name on Card</label>
+                                <input type="text" id="payCardName" placeholder="Name on Card">
+                            </div>
+                        </div>
+
+                        <div class="payment-content hidden" id="payMethodBank">
+                            <div class="dummy-bank-info">
+                                <img src="../static/images/bca_logo.png" style="height:30px; margin-bottom:10px;"
+                                    alt="BCA">
+                                <p>Bank BCA</p>
+                                <h3>123 456 7890</h3>
+                                <p>a.n Leafora Global</p>
+                            </div>
+                            <div class="form-group evidence-upload">
+                                <label>Upload Transfer Evidence *</label>
+                                <input type="file" id="payBankFile" accept="image/*" class="auth-input">
+                            </div>
+                        </div>
+
+                        <div class="payment-content hidden" id="payMethodWallet">
+                            <div class="dummy-qr-info">
+                                <i class="fa-solid fa-qrcode" style="font-size: 5rem; color: #fff;"></i>
+                                <p>Scan QRIS</p>
+                            </div>
+                            <div class="form-group evidence-upload">
+                                <label>Upload Transfer Evidence *</label>
+                                <input type="file" id="payWalletFile" accept="image/*" class="auth-input">
+                            </div>
+                        </div>
+
+
+                        <div class="step-actions">
+                            <button type="button" class="btn-prev-step" onclick="goToSlide(1)">&larr; Back to
+                                Shipping</button>
+                            <button type="button" class="btn-next-step" onclick="goToSlide(3)">Continue to Review
+                                &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3: REVIEW -->
+                <div class="checkout-slide slide-review">
+                    <div class="checkout-card summary-card full-width-card">
+                        <h2>Order Summary</h2>
+
+                        <div class="review-details">
+                            <div class="review-group">
+                                <h3>Shipping To</h3>
+                                <p id="reviewAddress">Loading...</p>
+                            </div>
+                            <div class="review-group">
+                                <h3>Payment</h3>
+                                <p>Credit Card (**** 1234)</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-slider-container">
+                            <div class="summary-slider-wrapper" id="summaryProductContainer">
+                                <!-- Injected JS items -->
+                            </div>
+                            <!-- Navigation Buttons (Hidden by default via CSS/JS if items <= 3) -->
+                            <button class="slider-nav-btn prev-btn" id="btnSumPrev" style="display:none;"><i
+                                    class="fa-solid fa-chevron-left"></i></button>
+                            <button class="slider-nav-btn next-btn" id="btnSumNext" style="display:none;"><i
+                                    class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+
+                        <div class="summary-totals">
+                            <div class="sum-row">
+                                <span>Subtotal</span>
+                                <span id="checkoutSubtotal">$400.00</span>
+                            </div>
+                            <div class="sum-row">
+                                <span>Shipping</span>
+                                <span id="checkoutShipping">$40.00</span>
+                            </div>
+                        </div>
+                        <div class="summary-final">
+                            <span>Total</span>
+                            <span id="checkoutTotal">$440.00</span>
+                        </div>
+
+                        <div class="checkout-note-section">
+                            <label for="checkoutNote" class="note-label">Order Note (Optional)</label>
+                            <textarea id="checkoutNote" class="checkout-note-input"
+                                placeholder="Add special instructions for your order..."></textarea>
+                        </div>
+
+                        <div class="step-actions">
+                            <button type="button" class="btn-prev-step" onclick="goToSlide(2)">&larr; Back to
+                                Payment</button>
+                            <button class="btn-place-order" id="placeOrderBtn">Place Order</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-recommendations">
+            <h3>YOU MAY ALSO LIKE</h3>
+            <div class="rec-items">
+                <div class="rec-item">
+                    <img src="../static/images/Ficus Golden Coin.jpg" alt="Ficus">
+                    <div class="rec-info">
+                        <h4>Ficus Golden Coin</h4>
+                        <span>$55.00</span>
+                        <button class="btn-rec-add" type="button"
+                            onclick="addToCart('Ficus Golden Coin', 55.00, '../static/images/Ficus Golden Coin.jpg')">Add
+                            to cart &rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-panel-right">
+            <div class="cart-header">
+                <h3>CART</h3><button class="btn-close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-body">
+                <div class="cart-items" id="cartItemsContainer"></div>
+            </div>
+            <div class="cart-footer">
+                <p class="cart-tax-info">Tax and shipping calculated at check out</p>
+                <button class="btn-checkout"><span>CHECK OUT</span><span id="cartTotalDisplay">- $0.00
+                        USD</span></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/script.js"></script>
+
+</body>
+
+</html>
