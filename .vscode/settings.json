@@ -1,0 +1,12 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^Set-Location -Path 'd:\\\\Tugas_akhir_InteraksiManusiadanKomputer\\\\Tugas_akhir_InteraksiManusiadanKomputer'; git ls-remote https://github\\.com/ReidOates/Leafora\\.git$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^Set-Location -Path 'd:\\\\Tugas_akhir_InteraksiManusiadanKomputer\\\\Tugas_akhir_InteraksiManusiadanKomputer'; git rev-list --left-right --count origin/main\\.\\.\\.main; git merge-base origin/main main$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
